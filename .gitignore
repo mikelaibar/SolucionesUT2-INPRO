@@ -1,0 +1,6 @@
+# Archivos generados al ejecutar los ejercicios como aplicaciones C#.
+bin/
+obj/
+*.user
+*.suo
+.vs/
