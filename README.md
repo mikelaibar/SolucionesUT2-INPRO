@@ -2,6 +2,8 @@
 
 Soluciones sencillas del libro **Ejercicios 1** de la copia de Moodle facilitada: un ejercicio de introducción y 50 ejercicios numerados, pensados para alumnado de 2.º de SMR.
 
+El proyecto [CorrectorUT2](CorrectorUT2/README.md) permite a los alumnos comprobar cualquiera de los 50 ejercicios en VS Code, indicando un archivo `Program.cs` o su URL. Incluye pruebas unitarias visibles y mensajes de ayuda.
+
 Cada carpeta de `Ejercicios1/` contiene:
 
 - `Program.cs`: una solución independiente, con variables de nombres descriptivos y comentarios breves.

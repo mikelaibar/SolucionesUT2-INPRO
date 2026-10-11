@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <RollForward>LatestMajor</RollForward>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <RestoreLockedMode Condition="'$(ContinuousIntegrationBuild)' == 'true'">true</RestoreLockedMode>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Comprobar ejercicio",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/Corrector.Cli/Corrector.Cli.csproj"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": "$msCompile",
+      "presentation": { "reveal": "always", "focus": true, "panel": "dedicated", "clear": true }
+    },
+    {
+      "label": "Preparar entrega sin ejecutar pruebas",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/Corrector.Cli/Corrector.Cli.csproj", "--", "--solo-preparar"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": "$msCompile",
+      "presentation": { "reveal": "always", "focus": true, "panel": "dedicated", "clear": true }
+    },
+    {
+      "label": "Pruebas de la entrega preparada",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["test", "${workspaceFolder}/Corrector.Tests/Corrector.Tests.csproj", "--filter", "Categoria=Entrega", "--logger", "console;verbosity=detailed"],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": { "CORRECTOR_ENTREGA": "${workspaceFolder}/entrega.json", "DOTNET_CLI_UI_LANGUAGE": "es" }
+      },
+      "group": "test",
+      "problemMatcher": "$msCompile",
+      "presentation": { "reveal": "always", "focus": true, "panel": "dedicated", "clear": true }
+    },
+    {
+      "label": "Pruebas del corrector",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["test", "${workspaceFolder}/Corrector.Tests/Corrector.Tests.csproj", "--filter", "FullyQualifiedName!~SubmissionTests"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "test",
+      "problemMatcher": "$msCompile",
+      "presentation": { "reveal": "always", "focus": true, "panel": "dedicated", "clear": true }
+    }
+  ]
+}
